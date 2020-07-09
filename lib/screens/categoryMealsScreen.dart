@@ -33,6 +33,7 @@ class CategoryMealsScreen extends StatelessWidget {
             itemBuilder: (context, index) {
               final catMeal = categoryMeals[index];
               return MealItem(
+                id: catMeal.id,
                 title: catMeal.title,
                 imageUrl: catMeal.imageUrl,
                 categories: catMeal.categories,
