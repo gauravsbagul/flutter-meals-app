@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:meal_app/models/meal.dart';
 import 'package:meal_app/screens/mealDetail.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class MealItem extends StatelessWidget {
   final String id;
@@ -73,13 +74,21 @@ class MealItem extends StatelessWidget {
           children: <Widget>[
             Stack(
               children: <Widget>[
+                Container(
+                  height: 250,
+                  width: double.infinity,
+                  child: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                ),
                 ClipRRect(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(15),
                     topRight: Radius.circular(15),
                   ),
-                  child: Image.network(
-                    imageUrl,
+                  child: FadeInImage.memoryNetwork(
+                    placeholder: kTransparentImage,
+                    image: imageUrl,
                     height: 250,
                     width: double.infinity,
                     fit: BoxFit.cover,
