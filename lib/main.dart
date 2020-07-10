@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'screens/categoriesScreen.dart';
 import 'screens/categoryMealsScreen.dart';
+import 'screens/mealDetail.dart';
 
 void main() {
   runApp(MyApp());
@@ -36,7 +37,18 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (ctx) => CategoriesScreen(),
         CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
+        MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
       },
+      // onGenerateRoute: (settings) {
+      //      deep linking pages from otification or from OAuth
+      //   print('SETTINGS: ${settings}');
+      //   return MaterialPageRoute(builder: (ctx) => CategoriesScreen());
+      // },
+      // onUnknownRoute: (settings) {
+      //      // 404 fallback page
+      //   print('SETTINGS: ${settings}');
+      //   return MaterialPageRoute(builder: (ctx) => CategoriesScreen());
+      // },
     );
   }
 }

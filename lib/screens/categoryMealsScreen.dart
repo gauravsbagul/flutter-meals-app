@@ -40,6 +40,7 @@ class CategoryMealsScreen extends StatelessWidget {
                 duration: catMeal.duration,
                 complexity: catMeal.complexity,
                 affordability: catMeal.affordability,
+                color: color,
               );
             }));
   }
