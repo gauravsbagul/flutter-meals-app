@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:meal_app/models/meal.dart';
-import 'package:meal_app/screens/mealDetail.dart';
+import 'package:meal_app/screens/mealDetailScreen.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class MealItem extends StatelessWidget {
@@ -13,6 +13,7 @@ class MealItem extends StatelessWidget {
   final Complexity complexity;
   final Affordability affordability;
   final Color color;
+  final Function removeItem;
 
   MealItem({
     @required this.id,
@@ -23,6 +24,7 @@ class MealItem extends StatelessWidget {
     @required this.complexity,
     @required this.affordability,
     this.color = Colors.pink,
+    @required this.removeItem,
   });
 
   String get complexityText {
@@ -55,9 +57,15 @@ class MealItem extends StatelessWidget {
     }
   }
 
-  void selectMeal(context) {
-    Navigator.of(context).pushNamed(MealDetailScreen.routeName,
+  void selectMeal(context) async {
+    dynamic value = await Navigator.of(context).pushNamed(
+        MealDetailScreen.routeName,
         arguments: {'id': id, 'color': color});
+
+    if (value != null) {
+      removeItem(value);
+      return;
+    }
   }
 
   @override
